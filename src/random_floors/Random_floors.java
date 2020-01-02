@@ -45,7 +45,7 @@ System.out.println("--------------------------------------------------------");
 final Set<Integer> s = new HashSet<>();
 final Set<Integer> t = new HashSet<>();
 if (techs.length > 3){
-for(int i = 0; i < techs.length + 25; i++){
+hello for(int i = 0; i < techs.length + 25; i++){
                 while(true){
                 int tec = r.nextInt(techs.length) + 1;
                 int pick = r.nextInt(floors.length) + 1;
