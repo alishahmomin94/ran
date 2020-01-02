@@ -13,6 +13,7 @@ import java.util.Scanner;
 /**
  *
  * @author mmanasia
+ * @author alishahmomin94
  */
 public class Random_floors {
 
@@ -24,7 +25,8 @@ public class Random_floors {
         Scanner in = new Scanner(System.in);
        
  
-String[] floors ={"1st floor", "2nd floor","3rd floor", "BH Buddy! Not your lucky day!"};
+String[] floors = {"1st floor", "2nd floor","3rd floor", "BH Buddy! Not your lucky day!"};
+String[] floors2 = {"1st and 2nd floor", "3rd floor", "BH Buddy! Not your lucky day!"};
 Random r = new Random();
 
 int length;
@@ -40,28 +42,47 @@ for(int k = 0 ; k < length; k++)
 in.close();
 System.out.println("--------------------------------------------------------");
 
-
 final Set<Integer> s = new HashSet<>();
 final Set<Integer> t = new HashSet<>();
-for(int i = 0; i < techs.length + 4; i++){
+if (techs.length > 3){
+for(int i = 0; i < techs.length + 25; i++){
                 while(true){
                 int tec = r.nextInt(techs.length) + 1;
+                int pick = r.nextInt(floors.length) + 1;
                 do{
-                if (t.contains(tec) == false){
+                if (t.contains(tec) == false && s.contains(pick) == false){
                     t.add(tec);
-                    System.out.println(techs[tec - 1]);
+                    s.add(pick);
+                    System.out.println(techs[tec - 1] + " <--> " + floors[pick - 1]);
                 }
                 else{
                     tec = r.nextInt(techs.length) + 1;
+                    pick = r.nextInt(floors.length) + 1;
                 }
-                }while(t.contains(tec) == false);
-//                int pick = r.nextInt(techs.length) + 1;
-                
-//                if (s.contains(pick) == false){
-//                    s.add(pick);
-//                    System.out.println(floors[pick - 1]);
-                break;
+                }while(t.contains(tec) == false && s.contains(pick) == false);
+              break;
+                }
                 }
 }
-}//hello
-};
+else{
+    for(int i = 0; i < techs.length + 25; i++){
+                while(true){
+                int tec = r.nextInt(techs.length) + 1;
+                int pick = r.nextInt(floors2.length) + 1;
+                do{
+                if (t.contains(tec) == false && s.contains(pick) == false){
+                    t.add(tec);
+                    s.add(pick);
+                    System.out.println(techs[tec - 1] + " <--> " + floors2[pick - 1]);
+                }
+                else{
+                    tec = r.nextInt(techs.length) + 1;
+                    pick = r.nextInt(floors2.length) + 1;
+                }
+                }while(t.contains(tec) == false && s.contains(pick) == false);
+              break;
+}
+}
+}
+}
+}
